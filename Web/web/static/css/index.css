@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    font-family: arial, sans-serif;
+    background: #FCFCFC url(../images/bgr.jpg) repeat;
+}
+
+.nav-bg {
+    background: url(../images/bg.jpg) top center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.ui.page.grid.nav {
+    margin-bottom: 40vh;
+}
+
+.intro {
+    color: white;
+}
+
+.intro p {
+    font-size: 1.2rem;
+}
+
+.ui.grid.era {
+    padding-top: 3.5rem;
+    padding-bottom: 2.5rem;
+}
+
+.ui.grid.fn {
+    padding-bottom: 3.5rem;
+}
+
+.ui.grid.footer {
+    padding-top:3.5rem;
+    padding-bottom: 3.5rem;
+}
+
+
+@media only screen and (min-width: 767px) {
+    .fl-left {
+        float: left;
+    }
+
+    .fl-right {
+        float: right
+    }
+
+    .ui.page.grid.nav {
+        padding-top: 2rem;
+    }
+}

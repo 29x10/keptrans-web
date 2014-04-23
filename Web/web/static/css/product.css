@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    font-family: arial, sans-serif;
+    background: #FCFCFC url(../images/bgr.jpg) repeat;
+}
+
+
+@media only screen and (min-width: 767px) {
+
+    .blank-sidebar {
+        margin-left: 275px;
+        padding: 2.5rem;
+    }
+
+    .ui.sidebar.show-sidebar {
+        margin-left: 0px !important;
+    }
+
+
+}
+
+.ui.menu.mobile-nav {
+    margin-top: 0;
+    display: none;
+}
+
+.close.item {
+    text-align: center;
+}
+
+.ui.vertical.menu .close.item >i.icon {
+    float:none;
+}
+
+@media only screen and (max-width: 767px) {
+
+    .blank-sidebar {
+        padding: 1.5rem;
+    }
+
+    .ui.menu.mobile-nav {
+        display: block;
+    }
+
+
+}
