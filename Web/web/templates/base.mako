@@ -40,5 +40,10 @@
         <script src="${url}" type="text/javascript"></script>
     % endfor
 
+<script type="text/javascript">
+  var FHChat = {product_id: "10d910ee92dc"};
+  FHChat.customAttributes=[];FHChat.sendCustomAttributes=function(data){this.customAttributes.push(data)};!function(){var a,b;return b=document.createElement("script"),a=document.getElementsByTagName("script")[0],b.src="https://chat-client-js.firehoseapp.com/chat-min.js",b.async=!0,a.parentNode.insertBefore(b,a)}();
+</script>
+
 </body>
 </html>
