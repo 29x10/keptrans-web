@@ -12,7 +12,13 @@ requires = [
     'pyramid',
     'pyramid_chameleon',
     'pyramid_debugtoolbar',
+    'pyramid_mako',
     'waitress',
+    'pyramid_webassets',
+    'yuicompressor',
+    'webassets==0.9',
+    'gunicorn',
+    'gevent'
     ]
 
 setup(name='Web',

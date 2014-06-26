@@ -1,0 +1,45 @@
+<script type="text/x-handlebars" data-template-name="products">
+
+    <div class="ui vertical sidebar menu show-sidebar">
+        {{#link-to 'index' class="item" closeSideBar="true"}}
+            <i class="home icon"></i> Keptrans凯思
+        {{/link-to}}
+        {{#each brandList}}
+            <div class="item">
+                <b>{{brand}}</b>
+
+                <div class="menu">
+                    {{#each categories}}
+                        {{#link-to 'brand.category' brand category class="item"}}{{category}}{{/link-to}}
+                    {{/each}}
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+    <div class="blank-sidebar">
+        <div class="ui secondary  menu">
+            <div class="right menu">
+                <div class="item">
+                    <div class="ui icon input">
+                        {{input placeholder="品牌..." type="text" value=search}}
+                        <i class="search link icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui items stackable">
+            {{#each product in products}}
+                {{#link-to 'index' tagName="div" class="item"}}
+                    <div class="image">
+                        <img {{bind-attr src=product.cover}}>
+                        <a class="star ui corner label">
+                            <div class="text">凯思</div>
+                        </a>
+                    </div>
+                {{/link-to}}
+            {{/each}}
+        </div>
+        {{outlet}}
+    </div>
+</script>

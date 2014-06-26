@@ -1,11 +1,11 @@
 body {
     margin: 0;
     font-family: arial, sans-serif;
-    background: #FCFCFC url(../images/bgr.jpg) repeat;
+    background: #FCFCFC url(images/bgr.jpg) repeat;
 }
 
 .nav-bg {
-    background: url(../images/bg.jpg) top center;
+    background: url(images/bg.jpg) top center;
     background-size: cover;
     height: 100vh;
 }
@@ -49,4 +49,23 @@ body {
     .ui.page.grid.nav {
         padding-top: 2rem;
     }
+}
+
+@media only screen and (min-width: 767px) {
+
+    .blank-sidebar {
+        margin-left: 275px;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem
+    }
+
+    .ui.sidebar.show-sidebar {
+        margin-left: 0 !important;
+    }
+
+    .ui.steps.nav {
+        margin-top: 20px;
+    }
+
+
 }
