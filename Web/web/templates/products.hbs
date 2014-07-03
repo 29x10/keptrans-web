@@ -18,28 +18,84 @@
     </div>
 
     <div class="blank-sidebar">
-        <div class="ui secondary  menu">
-            <div class="right menu">
-                <div class="item">
-                    <div class="ui icon input">
-                        {{input placeholder="品牌..." type="text" value=search}}
-                        <i class="search link icon"></i>
-                    </div>
+
+        {{outlet}}
+    </div>
+
+</script>
+
+<script type="text/x-handlebars" data-template-name="products/index">
+    <div class="ui secondary  menu">
+        <div class="right menu">
+            <div class="item">
+                <div class="ui icon input">
+                    {{input placeholder="品牌..." type="text" value=search}}
+                    <i class="search link icon"></i>
                 </div>
             </div>
         </div>
-        <div class="ui items stackable">
-            {{#each product in products}}
-                {{#link-to 'index' tagName="div" class="item"}}
-                    <div class="image">
-                        <img {{bind-attr src=product.cover}}>
-                        <a class="star ui corner label">
-                            <div class="text">凯思</div>
-                        </a>
-                    </div>
-                {{/link-to}}
-            {{/each}}
+    </div>
+    <div class="ui items stackable">
+        {{#each product in model}}
+            {{#link-to 'product' product tagName="div" class="item"}}
+                <div class="image">
+                    <img {{bind-attr src=product.cover}}>
+                    <a class="star ui corner label">
+                        <div class="text">凯思</div>
+                    </a>
+                </div>
+            {{/link-to}}
+        {{/each}}
+    </div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="brand">
+    <div class="ui secondary  menu">
+        <div class="right menu">
+            <div class="item">
+                <div class="ui icon input">
+                    {{input placeholder="品牌..." type="text" value=search}}
+                    <i class="search link icon"></i>
+                </div>
+            </div>
         </div>
-        {{outlet}}
+    </div>
+    <div class="ui items stackable">
+        {{#each product in model}}
+            {{#link-to 'product' product tagName="div" class="item"}}
+                <div class="image">
+                    <img {{bind-attr src=product.cover}}>
+                    <a class="star ui corner label">
+                        <div class="text">凯思</div>
+                    </a>
+                </div>
+            {{/link-to}}
+        {{/each}}
+    </div>
+</script>
+
+
+<script type="text/x-handlebars" data-template-name="brand/category">
+    <div class="ui secondary  menu">
+        <div class="right menu">
+            <div class="item">
+                <div class="ui icon input">
+                    {{input placeholder="品牌..." type="text" value=search}}
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui items stackable">
+        {{#each product in model}}
+            {{#link-to 'product' product tagName="div" class="item"}}
+                <div class="image">
+                    <img {{bind-attr src=product.cover}}>
+                    <a class="star ui corner label">
+                        <div class="text">凯思</div>
+                    </a>
+                </div>
+            {{/link-to}}
+        {{/each}}
     </div>
 </script>

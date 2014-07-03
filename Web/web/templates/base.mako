@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="凯思电气">
     <meta name="author" content="BINLEI XUE">
-    <link rel="shortcut icon" type="image/x-icon" href="/static/keptrans.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="${request.static_path('web:static/keptrans.ico')}">
 
     <title>KepTrans 凯思电气</title>
 
@@ -13,15 +13,23 @@
     <link rel="stylesheet" href="//cdnjscn.b0.upaiyun.com/libs/fancybox/2.1.5/jquery.fancybox.css" type="text/css"/>
 
     % for url in webassets(request,\
-                                  'base.css', output='out.css', filters='yui_css'):
+                                  'base.css', output='base.min.css', filters='yui_css'):
         <link href="${url}" rel="stylesheet">
     % endfor
 </head>
 
 <body>
 
+<script type="text/x-handlebars" data-template-name="loading">
+    <div class="ui active dimmer">
+        <div class="ui text loader large">载入中</div>
+    </div>
+</script>
+
 <%include file='index.hbs' />
 <%include file='products.hbs' />
+<%include file='product_detail.hbs' />
+
 <script src="//cdnjscn.b0.upaiyun.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
 <script src="//cdnjscn.b0.upaiyun.com/libs/semantic-ui/0.16.1/javascript/semantic.min.js" type="text/javascript"></script>
 <script src="//cdnjscn.b0.upaiyun.com/libs/handlebars.js/1.3.0/handlebars.min.js" type="text/javascript"></script>
@@ -36,14 +44,10 @@
                                   'ember/app.js',\
                                   'ember/models/product.js',\
                                   'ember/router.js',\
-                                  output='out.js', filters='yui_js'):
+                                  'ember/controllers/product_detail.js',\
+                                  output='base.min.js', filters='yui_js'):
         <script src="${url}" type="text/javascript"></script>
     % endfor
-
-<script type="text/javascript">
-  var FHChat = {product_id: "10d910ee92dc"};
-  FHChat.customAttributes=[];FHChat.sendCustomAttributes=function(data){this.customAttributes.push(data)};!function(){var a,b;return b=document.createElement("script"),a=document.getElementsByTagName("script")[0],b.src="https://chat-client-js.firehoseapp.com/chat-min.js",b.async=!0,a.parentNode.insertBefore(b,a)}();
-</script>
 
 </body>
 </html>

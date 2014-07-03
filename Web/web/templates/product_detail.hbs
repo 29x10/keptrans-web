@@ -1,0 +1,52 @@
+<script type="text/x-handlebars" data-template-name="product">
+    <div class="ui segment">
+        <div class="ui header huge blue">
+            {{brand}}
+            <div class="ui label black">{{category}}</div>
+        </div>
+        <div class="ui divider"></div>
+        <div class="ui small images">
+            <a class="fancybox" rel="gallery" {{bind-attr href=cover}}>
+                <img class="ui image" {{bind-attr src=cover}}/>
+            </a>
+            {{#each images}}
+                <a class="fancybox" rel="gallery" {{bind-attr href=url}}>
+                    <img class="ui image" {{bind-attr src=url}}/>
+                </a>
+            {{/each}}
+        </div>
+        {{#each tags}}
+            <div class="ui label" style="margin-top: 7px">{{name}}</div>
+        {{/each}}
+    </div>
+    <table class="ui table seven column product">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>品牌</th>
+            <th>型号</th>
+            <th>价格</th>
+            <th>货期(天)</th>
+            <th>库存</th>
+            <th>单位</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each products}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{brand}}</td>
+                <td>{{pattern}}</td>
+                <td>{{price}}</td>
+                <td>{{deadline}}</td>
+                <td>{{sku}}</td>
+                <td>{{unit}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+    <div class="ui segment">
+        {{{desc}}}
+    </div>
+</script>

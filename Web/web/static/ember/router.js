@@ -1,8 +1,8 @@
 App.Router.map(function () {
     this.resource('products', {path: '/products'}, function () {
-        this.resource('brand', {path: ':brand_name'}, function () {
-            this.route('category', {path: ':category_name'});
-        });
+        this.resource('brand', {path: '/brand/:brand_name'});
+        this.resource('brand.category', {path: '/brand/:brand_name/category/:category_name'});
+        this.resource('product', {path: '/product/:product_id'})
     });
 });
 
@@ -38,7 +38,7 @@ App.ProductsRoute = Ember.Route.extend({
 
                 for (var category in u[brand]) {
                     if (u[brand].hasOwnProperty(category) ) {
-                        category_list.pushObject({category: category, url: '/products/' + brand + '/' + category, brand: brand});
+                        category_list.pushObject({category: category, brand: brand});
                     }
                 }
                 brand_list.pushObject({brand: brand, categories: category_list});
@@ -50,36 +50,28 @@ App.ProductsRoute = Ember.Route.extend({
 });
 
 
-App.ProductsIndexRoute = Ember.Route.extend({
-    setupController: function (controller, model) {
-        this.controllerFor('products').set('products', this.modelFor('products'));
-    }
-});
-
-
 App.BrandRoute = Ember.Route.extend({
     model: function (params) {
         var _products = this.modelFor('products');
         return _products.filter(function (product) {
             return product.get('brand') === params.brand_name;
         });
-    },
-
-    setupController: function (controller, model) {
-        this.controllerFor('products').set('products', model);
     }
 });
 
 
 App.BrandCategoryRoute = Ember.Route.extend({
     model: function (params) {
-        var _products = this.modelFor('brand');
+        var _products = this.modelFor('products');
         return _products.filter(function (product) {
-            return product.get('category') === params.category_name;
+            return product.get('category') === params.category_name && product.get('brand') === params.brand_name;
         });
-    },
+    }
+});
 
-    setupController: function (controller, model) {
-        this.controllerFor('products').set('products', model);
+
+App.ProductRoute = Ember.Route.extend({
+    model: function (params) {
+        return this.store.find('productMaster', params.product_id);
     }
 });
