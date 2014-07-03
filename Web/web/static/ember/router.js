@@ -46,6 +46,16 @@ App.ProductsRoute = Ember.Route.extend({
         }
 
         this.controllerFor('products').set('brandList', brand_list);
+    },
+
+    actions: {
+        showSideBar: function () {
+            Ember.$('.ui.sidebar').sidebar({overlay: true}).sidebar('show');
+        },
+
+        hideSideBar: function () {
+            Ember.$('.ui.sidebar').sidebar({overlay: true}).sidebar('hide');
+        }
     }
 });
 

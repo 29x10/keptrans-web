@@ -1,6 +1,10 @@
 <script type="text/x-handlebars" data-template-name="products">
 
     <div class="ui vertical sidebar menu show-sidebar">
+        <a class="item close mobile-only" {{action 'hideSideBar'}}>
+            <i class="close icon"></i>关闭
+        </a>
+
         {{#link-to 'index' class="item" closeSideBar="true"}}
             <i class="home icon"></i> Keptrans凯思
         {{/link-to}}
@@ -15,6 +19,12 @@
                 </div>
             </div>
         {{/each}}
+    </div>
+
+    <div class="ui menu mobile-nav large">
+        <a class="item" {{action 'showSideBar'}}>
+            <i class="icon list"></i>
+        </a>
     </div>
 
     <div class="blank-sidebar">
