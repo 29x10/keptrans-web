@@ -1,23 +1,31 @@
 <script type="text/x-handlebars" data-template-name="product">
     <div class="ui segment">
-        <div class="ui header huge blue">
-            {{brand}}
-            <div class="ui label black">{{category}}</div>
+        <div class="ui grid stackable">
+            <div class="six column wide">
+                <div class="ui segment raised">
+                    <a class="fancybox" rel="gallery" {{bind-attr href=cover}}>
+                        <img class="ui image" {{bind-attr src=cover}} style="width: 100%"/>
+                    </a>
+                </div>
+            </div>
+            <div class="ten column wide">
+                <div class="ui header huge blue">
+                    {{brand}}
+                    <div class="ui label black">{{category}}</div>
+                </div>
+                <div class="ui divider"></div>
+                <div class="ui small images">
+                    {{#each images}}
+                        <a class="fancybox" rel="gallery" {{bind-attr href=url}}>
+                            <img class="ui image" {{bind-attr src=url}}/>
+                        </a>
+                    {{/each}}
+                </div>
+                {{#each tags}}
+                    <div class="ui label" style="margin-top: 7px">{{name}}</div>
+                {{/each}}
+            </div>
         </div>
-        <div class="ui divider"></div>
-        <div class="ui small images">
-            <a class="fancybox" rel="gallery" {{bind-attr href=cover}}>
-                <img class="ui image" {{bind-attr src=cover}}/>
-            </a>
-            {{#each images}}
-                <a class="fancybox" rel="gallery" {{bind-attr href=url}}>
-                    <img class="ui image" {{bind-attr src=url}}/>
-                </a>
-            {{/each}}
-        </div>
-        {{#each tags}}
-            <div class="ui label" style="margin-top: 7px">{{name}}</div>
-        {{/each}}
     </div>
     <table class="ui table seven column product">
         <thead>
