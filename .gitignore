@@ -15,4 +15,6 @@ Web/web/static/.webassets-cache
 Web/web/static/base.min.css
 Web/web/static/base.min.js
 
+Web/web/static/test.min.js
+
 Web/web/static/browser.min.css

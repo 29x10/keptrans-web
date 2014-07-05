@@ -9,10 +9,10 @@
 
     <title>KepTrans 凯思电气</title>
 
-    <link rel="stylesheet" href="//cdnjscn.b0.upaiyun.com/libs/semantic-ui/0.16.1/css/semantic.min.css" type="text/css"/>
-    <link rel="stylesheet" href="//cdnjscn.b0.upaiyun.com/libs/fancybox/2.1.5/jquery.fancybox.css" type="text/css"/>
+    <link rel="stylesheet" href="${request.static_path('web:static/bower/bower_components/semantic-ui/build/packaged/css/semantic.min.css')}" type="text/css"/>
 
     % for url in webassets(request,\
+                                  'bower/bower_components/fancybox/source/jquery.fancybox.css',\
                                   'base.css', output='base.min.css', filters='yui_css'):
         <link href="${url}" rel="stylesheet">
     % endfor
@@ -21,22 +21,34 @@
 <body>
 
 <script type="text/x-handlebars" data-template-name="loading">
-    <div class="ui active dimmer">
-        <div class="ui text loader large">载入中</div>
-    </div>
+    <div id="loader" class="pageload-overlay" data-opening="M20,15 50,30 50,30 30,30 Z;M0,0 80,0 50,30 20,45 Z;M0,0 80,0 60,45 0,60 Z;M0,0 80,0 80,60 0,60 Z" data-closing="M0,0 80,0 60,45 0,60 Z;M0,0 80,0 50,30 20,45 Z;M20,15 50,30 50,30 30,30 Z;M30,30 50,30 50,30 30,30 Z">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 80 60" preserveAspectRatio="none">
+            <path d="M30,30 50,30 50,30 30,30 Z"/>
+        </svg>
+    </div><!-- /pageload-overlay -->
 </script>
 
 <%include file='index.hbs' />
 <%include file='products.hbs' />
 <%include file='product_detail.hbs' />
 
-<script src="//cdnjscn.b0.upaiyun.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
-<script src="//cdnjscn.b0.upaiyun.com/libs/semantic-ui/0.16.1/javascript/semantic.min.js" type="text/javascript"></script>
-<script src="//cdnjscn.b0.upaiyun.com/libs/handlebars.js/1.3.0/handlebars.min.js" type="text/javascript"></script>
-<script src="//cdnjscn.b0.upaiyun.com/libs/ember.js/1.5.1/ember.min.js" type="text/javascript"></script>
-<script src="//cdnjscn.b0.upaiyun.com/libs/ember-data.js/1.0.0-beta.7/ember-data.min.js" type="text/javascript"></script>
-<script src="//cdnjscn.b0.upaiyun.com/libs/fancybox/2.1.5/jquery.fancybox.min.js" type="text/javascript"></script>
-<script src="//cdnjscn.b0.upaiyun.com/libs/moment.js/2.6.0/moment-with-langs.min.js" type="text/javascript"></script>
+
+    % for url in webassets(request,\
+                                  'bower/bower_components/jquery/dist/jquery.js',\
+                                  'bower/bower_components/semantic-ui/build/packaged/javascript/semantic.js',\
+                                  'bower/bower_components/handlebars/handlebars.js',\
+                                  'bower/bower_components/fancybox/source/jquery.fancybox.js',\
+                                  'bower/bower_components/moment/moment.js',\
+                                  'bower/bower_components/moment/lang/zh-cn.js',\
+                                  'bower/bower_components/Snap.svg/dist/snap.svg.js',\
+                                  'bower/bower_components/classie/classie.js',\
+                                  'loader/svgLoader.js',\
+                                  output='test.min.js', filters='yui_js'):
+        <script src="${url}" type="text/javascript" charset="UTF-8"></script>
+    % endfor
+
+<script src="${request.static_path('web:static/bower/bower_components/ember/ember.min.js')}" type="text/javascript"></script>
+<script src="${request.static_path('web:static/bower/bower_components/ember-data/ember-data.min.js')}" type="text/javascript"></script>
 
 
 
@@ -44,6 +56,7 @@
                                   'ember/app.js',\
                                   'ember/models/product.js',\
                                   'ember/router.js',\
+                                  'ember/controllers/loading.js',\
                                   'ember/controllers/product_detail.js',\
                                   output='base.min.js', filters='yui_js'):
         <script src="${url}" type="text/javascript"></script>
