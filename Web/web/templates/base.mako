@@ -21,11 +21,7 @@
 <body>
 
 <script type="text/x-handlebars" data-template-name="loading">
-    <div id="loader" class="pageload-overlay" data-opening="M20,15 50,30 50,30 30,30 Z;M0,0 80,0 50,30 20,45 Z;M0,0 80,0 60,45 0,60 Z;M0,0 80,0 80,60 0,60 Z" data-closing="M0,0 80,0 60,45 0,60 Z;M0,0 80,0 50,30 20,45 Z;M20,15 50,30 50,30 30,30 Z;M30,30 50,30 50,30 30,30 Z">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 80 60" preserveAspectRatio="none">
-            <path d="M30,30 50,30 50,30 30,30 Z"/>
-        </svg>
-    </div><!-- /pageload-overlay -->
+    <div class="pageload-overlay show pageload-loading"></div>
 </script>
 
 <%include file='index.hbs' />
@@ -40,9 +36,6 @@
                                   'bower/bower_components/fancybox/source/jquery.fancybox.js',\
                                   'bower/bower_components/moment/moment.js',\
                                   'bower/bower_components/moment/lang/zh-cn.js',\
-                                  'bower/bower_components/Snap.svg/dist/snap.svg.js',\
-                                  'bower/bower_components/classie/classie.js',\
-                                  'loader/svgLoader.js',\
                                   output='test.min.js', filters='yui_js'):
         <script src="${url}" type="text/javascript" charset="UTF-8"></script>
     % endfor
@@ -56,7 +49,6 @@
                                   'ember/app.js',\
                                   'ember/models/product.js',\
                                   'ember/router.js',\
-                                  'ember/controllers/loading.js',\
                                   'ember/controllers/product_detail.js',\
                                   output='base.min.js', filters='yui_js'):
         <script src="${url}" type="text/javascript"></script>
