@@ -19,3 +19,9 @@ def index_view(request):
 @view_config(route_name='browser', renderer='browser.mako')
 def download_browser(request):
     return {}
+
+
+
+@view_config(route_name='google', renderer='google.mako')
+def google_view(request):
+    return {}
